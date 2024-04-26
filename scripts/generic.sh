@@ -1,4 +1,4 @@
-alias f='open -a Finder ./'
+alias f='explorer.exe .'
 alias ll='ls -a'
 alias p='python3'
 alias edit='subl'
@@ -13,8 +13,8 @@ up () {
 }
 
 update () {
-  brew update
-  brew upgrade
+  sudo apt update
+  sudo apt upgrade
 }
 
 del () {
