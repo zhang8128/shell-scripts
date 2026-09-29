@@ -1,17 +1,9 @@
-docker-create () {
-  docker-machine create --driver virtualbox $1
-  eval $(docker-machine env $1)
-  docker ps -a
-}
-
 docker-start () {
-  docker-machine start $1
-  eval $(docker-machine env $1)
+  docker start $1
   docker ps -a
 }
 
 docker-status () {
-  docker-machine ls
   docker images
   docker ps -a
 }
@@ -27,7 +19,7 @@ docker-clear () {
 docker-remove () {
   docker stop $(docker ps -a -q)
   docker rm $(docker ps -a -q)
-  docker ps -acd
+  docker ps -a
 }
 
 docker-open () {

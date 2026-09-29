@@ -1,8 +1,8 @@
-alias f='open -a Finder ./'
+alias f='xdg-open ./'
 alias ll='ls -a'
 alias p='python3'
 alias edit='subl'
-alias scripts='edit ~/utils/shell-scripts/ .'
+alias scripts='edit ~/.utils/shell-scripts/'
 
 resource () {
   source ~/.zshrc
