@@ -1,8 +1,12 @@
-alias f='open -a Finder ./'
+if [[ "$OSTYPE" == darwin* ]]; then
+  alias f='open -a Finder ./'
+else
+  alias f='xdg-open ./ >/dev/null 2>&1'
+fi
 alias ll='ls -a'
 alias p='python3'
 alias edit='subl'
-alias scripts='edit ~/utils/shell-scripts/ .'
+alias scripts="edit ${0:A:h:h} ."
 
 resource () {
   source ~/.zshrc
@@ -13,8 +17,14 @@ up () {
 }
 
 update () {
-  brew update
-  brew upgrade
+  if [[ "$OSTYPE" == darwin* ]]; then
+    brew update
+    brew upgrade
+  else
+    sudo apt update
+    sudo apt upgrade -y
+    command -v snap >/dev/null && sudo snap refresh
+  fi
 }
 
 del () {

@@ -7,7 +7,7 @@ branch () {
   git checkout -b $1
 }
 
-reset () {
+greset () {
   git reset --hard origin/main
 }
 

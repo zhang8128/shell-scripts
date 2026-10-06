@@ -1,3 +1,4 @@
+if [[ "$OSTYPE" == darwin* ]]; then
 docker-create () {
   docker-machine create --driver virtualbox $1
   eval $(docker-machine env $1)
@@ -15,6 +16,12 @@ docker-status () {
   docker images
   docker ps -a
 }
+else
+docker-status () {
+  docker images
+  docker ps -a
+}
+fi
 
 docker-clear () {
   docker stop $(docker ps -a -q)
